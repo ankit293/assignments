@@ -1,5 +1,5 @@
-# helpshift-assignments
+# assignments
 
 ## Overview
 
-`helpshift-assignments` is a storage space for programming assignments.
+`assignments` is a storage space for programming assignments.
