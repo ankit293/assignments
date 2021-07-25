@@ -1,4 +1,5 @@
 package com.exercise.module1;
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -6,7 +7,10 @@ public class Module1Exercise {
 
   public static void main(String[] args) {
     // startSimpleInterestCalculator();
-    System.out.println(computeRaise(10000, "excellent"));
+    System.out.println("Computed raise: " + computeRaise(10000, "excellent"));
+    long [] salaries = {500, 900, 1000, 1200, 5000, 5500, 2500, 3000, 4000, 1500};
+    System.out.println("List of salaries: " + Arrays.toString(salaries));
+    System.out.println("Average band salaries: " + computeAvgSalaryPerBand(salaries));
   }
 
   // 1. The input to the method includes the current annual salary for the employee and a number indicating
@@ -34,12 +38,12 @@ public class Module1Exercise {
   // compute the average of all the input salaries grouped by salary bands
   // "band1" : less than $1000, "band2": $1000 >= and <$5000, "band3": >= $5000
 
-  public HashMap<String, Long> computeAvgSalaryPerBand(long[] salaries) {
+  public static HashMap<String, Long> computeAvgSalaryPerBand(long[] salaries) {
     HashMap<String, Long> averageSalaries = new HashMap<>();
     averageSalaries.put("band1", 0l);
     averageSalaries.put("band2", 0l);
     averageSalaries.put("band3", 0l);
-    int band1_count = 0, band2_count =0, band3_count = 0;
+    int band1_count = 0, band2_count = 0, band3_count = 0;
     for(int i=0; i<salaries.length; i++){
       if(salaries[i] > 0 && salaries[i] < 1000){
         band1_count++;
@@ -55,9 +59,12 @@ public class Module1Exercise {
         return null;
       }
     }
-    averageSalaries.put("band1", averageSalaries.get("band1") / band1_count);
-    averageSalaries.put("band2", averageSalaries.get("band2") / band2_count);
-    averageSalaries.put("band3", averageSalaries.get("band3") / band3_count);
+    if(band1_count > 0)
+      averageSalaries.put("band1", averageSalaries.get("band1") / band1_count);
+    if(band2_count > 0)
+      averageSalaries.put("band2", averageSalaries.get("band2") / band2_count);
+    if(band3_count > 0)
+      averageSalaries.put("band3", averageSalaries.get("band3") / band3_count);
     return averageSalaries;
   }
 }
