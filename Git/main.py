@@ -6,14 +6,16 @@ def fizzbuzz(n):
         raise ValueError("Input n should be greater than or equal to 1")
     result = []
     for i in range(1, n+1):
-        if i%3 == 0 and i%5 ==0:
-            result.append("FIZZBUZZ")
-        elif i%3 == 0:
-            result.append("FIZZ")
-        elif i%5 == 0:
-            result.append("BUZZ")
-        else:
+        s=""
+        if i%3 == 0:
+            s+="FIZZ"
+        if i%5 == 0:
+            s+="BUZZ"
+       
+        if s=="":
             result.append(i)
+        else:
+            result.append(s)
     return result
 
 
